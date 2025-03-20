@@ -5,6 +5,7 @@ import com.ark.sub.dto.CommandDto;
 import com.ark.sub.dto.ProbeDto;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Service to perform actions on Prob
@@ -33,6 +34,6 @@ public interface SubmersibleService {
      * Return list of visited co-ordinates of Prob
      * @return
      */
-    List<CoOrdinatesDto> getVisitedCoordinates();
+    Set<CoOrdinatesDto> getVisitedCoordinates();
 
 }

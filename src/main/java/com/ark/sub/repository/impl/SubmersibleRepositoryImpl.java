@@ -50,4 +50,16 @@ public class SubmersibleRepositoryImpl implements SubmersibleRepository {
         isProbeInitialized();
         return visitedCoOrdinates;
     }
+
+    @Override
+    public String getProbFaceDirection() throws ProbeNotInitializeException {
+        isProbeInitialized();
+        return probeDto.getDirection();
+    }
+
+    @Override
+    public CoOrdinatesDto getProbCurrentCoOrdinates() throws ProbeNotInitializeException {
+        isProbeInitialized();
+        return probeDto.getCoOrdinates();
+    }
 }

@@ -42,4 +42,8 @@ public interface SubmersibleRepository {
      * @return
      */
     Set<CoOrdinatesDto> getVisitedCoOrdinates() throws ProbeNotInitializeException;
+
+    String getProbFaceDirection() throws ProbeNotInitializeException;
+
+    CoOrdinatesDto getProbCurrentCoOrdinates () throws ProbeNotInitializeException;
 }

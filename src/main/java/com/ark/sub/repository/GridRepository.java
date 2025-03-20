@@ -73,4 +73,6 @@ public interface GridRepository {
      * @throws GridLimitException
      */
     CoOrdinatesDto getPrevCoOrdinatesOnY(CoOrdinatesDto coOrdinates) throws ObstaclesException, GridLimitException;
+
+
 }
