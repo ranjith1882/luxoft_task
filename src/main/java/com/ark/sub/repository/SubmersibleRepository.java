@@ -5,6 +5,7 @@ import com.ark.sub.dto.ProbeDto;
 import com.ark.sub.exception.ProbeNotInitializeException;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * SubmersibleRepository handles data that is related to
@@ -19,7 +20,7 @@ public interface SubmersibleRepository {
      * Initializes pod
      * @param probeDto
      */
-    void initializeProbe(ProbeDto probeDto);
+    boolean initializeProbe(ProbeDto probeDto);
 
     /**
      * Update co-ordinates of Probe
@@ -40,5 +41,5 @@ public interface SubmersibleRepository {
      * Return list of all co-ordinates of Probe from Probe initialized to current location.
      * @return
      */
-    List<CoOrdinatesDto> getVisitedCoOrdinates() throws ProbeNotInitializeException;
+    Set<CoOrdinatesDto> getVisitedCoOrdinates() throws ProbeNotInitializeException;
 }

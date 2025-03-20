@@ -9,8 +9,14 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class GridRepositoryImpl implements GridRepository {
 
+    public GridRepositoryImpl()
+    {
+        obstaclesInGrid.add(new CoOrdinatesDto(10, 20));
+        obstaclesInGrid.add(new CoOrdinatesDto(30, 40));
+    }
+
     @Override
-    public boolean isValid(CoOrdinatesDto coOrdinates) throws ObstaclesException {
+    public boolean isValid(CoOrdinatesDto coOrdinates) throws ObstaclesException, GridLimitException {
         return false;
     }
 

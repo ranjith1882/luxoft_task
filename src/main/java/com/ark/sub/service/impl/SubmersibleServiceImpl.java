@@ -1,6 +1,7 @@
 package com.ark.sub.service.impl;
 
 import com.ark.sub.dto.CoOrdinatesDto;
+import com.ark.sub.dto.CommandDto;
 import com.ark.sub.dto.ProbeDto;
 import com.ark.sub.service.SubmersibleService;
 import lombok.AllArgsConstructor;
@@ -18,7 +19,7 @@ public class SubmersibleServiceImpl implements SubmersibleService {
     }
 
     @Override
-    public CoOrdinatesDto move() {
+    public CoOrdinatesDto move(CommandDto command) {
         return null;
     }
 

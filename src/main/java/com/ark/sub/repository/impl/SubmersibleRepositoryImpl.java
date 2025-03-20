@@ -6,13 +6,14 @@ import com.ark.sub.exception.ProbeNotInitializeException;
 import com.ark.sub.repository.SubmersibleRepository;
 import org.springframework.stereotype.Repository;
 import java.util.List;
+import java.util.Set;
 
 @Repository
 public class SubmersibleRepositoryImpl implements SubmersibleRepository {
 
     @Override
-    public void initializeProbe(ProbeDto probeDto) {
-
+    public boolean initializeProbe(ProbeDto probeDto) {
+        return false;
     }
 
     @Override
@@ -26,7 +27,7 @@ public class SubmersibleRepositoryImpl implements SubmersibleRepository {
     }
 
     @Override
-    public List<CoOrdinatesDto> getVisitedCoOrdinates() throws ProbeNotInitializeException {
+    public Set<CoOrdinatesDto> getVisitedCoOrdinates() throws ProbeNotInitializeException {
         return null;
     }
 }

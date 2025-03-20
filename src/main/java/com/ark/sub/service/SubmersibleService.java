@@ -1,6 +1,7 @@
 package com.ark.sub.service;
 
 import com.ark.sub.dto.CoOrdinatesDto;
+import com.ark.sub.dto.CommandDto;
 import com.ark.sub.dto.ProbeDto;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public interface SubmersibleService {
      * Move Probe in given direction
      * @return
      */
-    CoOrdinatesDto move();
+    CoOrdinatesDto move(CommandDto command);
 
     /**
      * Return current Co-ordinates of Prob

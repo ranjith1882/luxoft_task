@@ -35,7 +35,7 @@ public interface GridRepository {
      * @param coOrdinates
      * @return - true if conditions meets for given co-ordinates otherwise false.
      */
-    boolean isValid(CoOrdinatesDto coOrdinates) throws ObstaclesException;
+    boolean isValid(CoOrdinatesDto coOrdinates) throws ObstaclesException, GridLimitException;
 
 
     /**
