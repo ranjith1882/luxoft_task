@@ -1,6 +1,8 @@
 package com.ark.sub.mapper;
 
 
+import com.ark.sub.exception.ProbeNotMoveException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,20 +30,26 @@ public class FaceDirectionMapper {
     public static String getFaceDirection(String direction, String movement)
     {
         String newDirection = direction;
-        switch (direction)
+        if (validateInputs(direction, movement)) {
+
+            switch (direction) {
+                case EAST:
+                    newDirection = LEFT.equals(movement) ? NORTH : SOUTH;
+                    break;
+                case WEST:
+                    newDirection = LEFT.equals(movement) ? SOUTH : NORTH;
+                    break;
+                case SOUTH:
+                    newDirection = LEFT.equals(movement) ? EAST : WEST;
+                    break;
+                case NORTH:
+                    newDirection = LEFT.equals(movement) ? WEST : EAST;
+                    break;
+            }
+        }
+        else
         {
-            case EAST:
-                newDirection = LEFT.equals(movement) ? NORTH : SOUTH;
-                break;
-            case WEST:
-                newDirection = LEFT.equals(movement) ? SOUTH : NORTH;
-                break;
-            case SOUTH:
-                newDirection = LEFT.equals(movement) ? EAST : WEST;
-                break;
-            case NORTH:
-                newDirection = LEFT.equals(movement) ? WEST : EAST;
-                break;
+            throw new ProbeNotMoveException("Wrong directions given");
         }
         return newDirection;
     }

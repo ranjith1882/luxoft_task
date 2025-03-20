@@ -6,6 +6,7 @@ import com.ark.sub.dto.ProbeDto;
 import com.ark.sub.exception.GridLimitException;
 import com.ark.sub.exception.ObstaclesException;
 import com.ark.sub.exception.ProbeNotInitializeException;
+import com.ark.sub.exception.ProbeNotMoveException;
 import com.ark.sub.mapper.FaceDirectionMapper;
 import com.ark.sub.repository.GridRepository;
 import com.ark.sub.repository.SubmersibleRepository;
@@ -48,7 +49,7 @@ public class SubmersibleServiceImpl implements SubmersibleService {
         {
             String probFaceDirection = submersibleRepository.getProbFaceDirection();
             CoOrdinatesDto curCoOrdinatesDto = submersibleRepository.getProbCurrentCoOrdinates();
-            CoOrdinatesDto newCoOrdinatesDto = curCoOrdinatesDto;
+            CoOrdinatesDto newCoOrdinatesDto;
             try {
                 switch (command.getDirection()+probFaceDirection)
                 {
@@ -68,10 +69,12 @@ public class SubmersibleServiceImpl implements SubmersibleService {
                     case FOR_WARD+SOUTH:
                         newCoOrdinatesDto = gridRepository.getPrevCoOrdinatesOnY(curCoOrdinatesDto);
                         break;
+                    default:
+                        throw new ProbeNotMoveException("Wrong directions given");
                 }
                 submersibleRepository.updateCoOrdinates(newCoOrdinatesDto);
             } catch (ObstaclesException | GridLimitException e) {
-                throw new RuntimeException(e.getMessage());
+                throw new ProbeNotMoveException(e.getMessage());
             }
         }
         return submersibleRepository.getProbCurrentCoOrdinates();
