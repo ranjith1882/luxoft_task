@@ -37,7 +37,7 @@ public class SubController {
     }
 
     @PostMapping("/move")
-    public ResponseEntity<ResponseDto>  move(@Valid @RequestBody CommandDto command) {
+    public ResponseEntity<ResponseDto> move(@Valid @RequestBody CommandDto command) {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(new ResponseDto("200","Probe Moved To " + command.getDirection()));

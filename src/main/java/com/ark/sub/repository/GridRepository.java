@@ -1,6 +1,8 @@
 package com.ark.sub.repository;
 
 import com.ark.sub.dto.CoOrdinatesDto;
+import com.ark.sub.exception.GridLimitException;
+import com.ark.sub.exception.ObstaclesException;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -26,4 +28,49 @@ public interface GridRepository {
      * Currently Obstacles co-ordinates are hard coded
      */
     Set<CoOrdinatesDto> obstaclesInGrid = new HashSet<>();
+
+    /**
+     * It validates is there any Obstacles at given co-ordinates
+     * Or is it exceeded from grid limits
+     * @param coOrdinates
+     * @return - true if conditions meets for given co-ordinates otherwise false.
+     */
+    boolean isValid(CoOrdinatesDto coOrdinates) throws ObstaclesException;
+
+
+    /**
+     * Provide by incrementing X co-ordinate to one
+     * @param coOrdinates
+     * @return
+     * @throws ObstaclesException
+     * @throws GridLimitException
+     */
+    CoOrdinatesDto getNextCoOrdinatesOnX(CoOrdinatesDto coOrdinates) throws ObstaclesException, GridLimitException;
+
+    /**
+     * Provide by decreasing X co-ordinate to one
+     * @param coOrdinates
+     * @return
+     * @throws ObstaclesException
+     * @throws GridLimitException
+     */
+    CoOrdinatesDto getPrevCoOrdinatesOnX(CoOrdinatesDto coOrdinates) throws ObstaclesException, GridLimitException;
+
+    /**
+     * Provide by incrementing Y co-ordinate to one
+     * @param coOrdinates
+     * @return
+     * @throws ObstaclesException
+     * @throws GridLimitException
+     */
+    CoOrdinatesDto getNextCoOrdinatesOnY(CoOrdinatesDto coOrdinates) throws ObstaclesException, GridLimitException;
+
+    /**
+     * Provide by decreasing Y co-ordinate to one
+     * @param coOrdinates
+     * @return
+     * @throws ObstaclesException
+     * @throws GridLimitException
+     */
+    CoOrdinatesDto getPrevCoOrdinatesOnY(CoOrdinatesDto coOrdinates) throws ObstaclesException, GridLimitException;
 }
