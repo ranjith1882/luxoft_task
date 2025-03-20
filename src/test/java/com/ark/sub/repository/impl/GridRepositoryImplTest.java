@@ -70,7 +70,7 @@ class GridRepositoryImplTest {
     void testGetNextCoOrdinatesOnX() throws ObstaclesException, GridLimitException {
         CoOrdinatesDto newCoOrdinates = gridRepository.getNextCoOrdinatesOnX(new CoOrdinatesDto(5, 40));
         assertEquals(6, newCoOrdinates.getX());
-        assertEquals(40, newCoOrdinates.getX());
+        assertEquals(40, newCoOrdinates.getY());
     }
 
     @Test
@@ -92,7 +92,7 @@ class GridRepositoryImplTest {
     void testGetPrevCoOrdinatesOnX() throws ObstaclesException, GridLimitException {
         CoOrdinatesDto newCoOrdinates = gridRepository.getPrevCoOrdinatesOnX(new CoOrdinatesDto(5, 40));
         assertEquals(4, newCoOrdinates.getX());
-        assertEquals(40, newCoOrdinates.getX());
+        assertEquals(40, newCoOrdinates.getY());
     }
 
     @Test
@@ -113,7 +113,7 @@ class GridRepositoryImplTest {
     void testGetNextCoOrdinatesOnY() throws ObstaclesException, GridLimitException {
         CoOrdinatesDto newCoOrdinates = gridRepository.getNextCoOrdinatesOnY(new CoOrdinatesDto(5, 40));
         assertEquals(5, newCoOrdinates.getX());
-        assertEquals(41, newCoOrdinates.getX());
+        assertEquals(41, newCoOrdinates.getY());
     }
 
     @Test
@@ -134,7 +134,7 @@ class GridRepositoryImplTest {
     void testGetPrevCoOrdinatesOnY() throws ObstaclesException, GridLimitException {
         CoOrdinatesDto newCoOrdinates = gridRepository.getPrevCoOrdinatesOnY(new CoOrdinatesDto(5, 40));
         assertEquals(5, newCoOrdinates.getX());
-        assertEquals(39, newCoOrdinates.getX());
+        assertEquals(39, newCoOrdinates.getY());
     }
 
     @Test
